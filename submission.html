@@ -1,0 +1,71 @@
+<!-- This is an example of a fake submission results
+    page for CPSC 332
+     -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+
+    <title>Submission Page</title>
+
+    <style>
+        table,
+        th {
+            border: 1px solid black;
+
+        }
+
+        td {
+            border: 1px dotted black;
+        }
+    </style>
+    <script>
+        /*
+            This script segment is intended to simulate a form
+            getting data from a form post on the referring page.
+            We are only doing this for now until we go over a 
+            web server implementation that contains a server side
+            presence.
+        */
+        window.onload = function () {
+            //(GET method) get your query string values by field
+            let queryString = window.location.search.substring(1);
+            var URLFieldValues = queryString.split('&');
+
+            //find our table so we can interact with it
+            var table = document.getElementById("results-table");
+
+            //parse out the query string name=value pairs and populate our table
+            for (var i = 0; i < URLFieldValues.length; i++) {
+                let rowIndex = i + 1;
+                var parameterValues = URLFieldValues[i].split('=');
+                var row = table.insertRow(rowIndex);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = parameterValues[0];
+                cell2.innerHTML = parameterValues[1];
+            }
+        };        
+    </script>
+</head>
+
+<body>
+    <h1>Submission Results Page</h1>
+    <table id="results-table">
+        <caption>Widget values submitted on the previous page</caption>
+        <tr>
+            <th>Widget Name</th>
+            <th>Widget Value</th>
+        </tr>
+        <!-- This is what we end up recreating with the code above -->
+        <!-- <tr>
+            <td id=""></td>
+            <td id=""></td>
+        </tr> -->
+    </table>
+</body>
+
+</html>
