@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 3000;
 // In this case, favicon.png
 app.use(express.static("public"));
 
+// set our view engine to ejs
+// we want to use embedded javascript "template" files
+app.set("view engine", "ejs");
+
 // Middleware to parse URL-encoded data in the request body and make it available in req.body
 // The 'extended: false' option uses the querystring library for parsing
 app.use(express.urlencoded({ extended: false }));
@@ -28,59 +32,13 @@ app.get("/", (req, res) => {
     const method = "POST";
 
     // Create the HTML content that will be sent as the response
-    const htmlContent = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-            <title>REAL Form Demo</title>
-            <link rel="icon" href="favicon.png">
-            <style>
-                    body {
-                            text-align: center;
-                            margin: auto;
-                            max-width: 600px;
-                            padding: 15px;
-                    }
-                    #container {
-                            border: 3px solid blue;
-                            border-radius: 15px;
-                            padding: 15px;
-                    }
-            </style>
-    </head>
-    <body>
-            <div id="container">
-                    <h1>Hello, World! New web page, who is this?</h1>
-                    <!-- Placeholder image with alternative text -->
-                    <img src="https://placehold.co/400x200" alt="Placeholder image">
-
-                    <!-- Form with action pointing to the '/submit' route and POST method -->
-                    <form action="submit" method="${method}">
-                            <p>
-                                    <label for="first">First Name:</label>
-                                    <input type="text" name="first" id="first">
-                            </p>
-                            <p>
-                                    <label for="last">Last Name:</label>
-                                    <input type="text" name="last" id="last">
-                            </p>
-                            <p>
-                                    <textarea name="summary" rows="4" cols="50" placeholder="enter text here"></textarea>
-                            </p>
-                            <p>
-                                    <label for="item1">Item 1:</label>
-                                    <input type="checkbox" name="item1" id="item1">
-                            </p>
-                            <!-- Submit button for the form -->
-                            <input type="submit" value="Submit Feedback">
-                    </form>
-            </div>
-    </body>
-    </html>
-    `;
+    // No longer needed
+    // const htmlContent = ``;
 
     // Send the generated HTML content as the response
-    res.send(htmlContent);
+    //res.send(htmlContent);
+    // Render the ejs instead of the string.
+    res.render("index.ejs");
 });
 
 // Define a GET route for '/submit' that handles form submissions with query parameters
