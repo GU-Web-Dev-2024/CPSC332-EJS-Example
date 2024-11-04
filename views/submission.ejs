@@ -29,23 +29,38 @@
             <th>Widget Name</th>
             <th>Widget Value</th>
         </tr>
+        <!-- Adding EJS here. Note: EJS won't be seen client-side like this comment
+             
+        -->
         <tr>
             <td>First</td>
-            <td>${first}</td>
+            <td>
+                <%= first %>
+            </td>
         </tr>
         <tr>
             <td>Last</td>
-            <td>${last}</td>
+            <td>
+                <%= last %>
+            </td>
         </tr>
         <tr>
             <td>Summary</td>
-            <td>${summary}</td>
+            <td>
+                <%= summary %>
+            </td>
         </tr>
         <tr>
             <td>item1</td>
-            <td>${item1}</td>
+            <td>
+                <%= item1 %>
+            </td>
         </tr>
     </table>
+
+    <div style="margin: 15px;">
+        <a href="/">Back</a>
+    </div>
 </body>
 
 </html>

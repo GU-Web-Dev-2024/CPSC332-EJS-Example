@@ -49,9 +49,17 @@ app.get("/submit", (req, res) => {
     let summary = req.query.summary;
     let item1 = req.query.item1 ? true : false; // Check if 'item1' is present and set it to true or false
 
+    //package form data and send it to ejs.
+    let result = {
+        first: first,
+        last: last,
+        summary: summary,
+        item1: item1,
+    };
+
     // Send the generated HTML content as the response
     // res.send(htmlContent);
-    res.render("submission.ejs");
+    res.render("submission.ejs", result);
 });
 
 // Define a POST route for '/submit' that handles form submissions with data in the request body
@@ -62,7 +70,15 @@ app.post("/submit", (req, res) => {
     let summary = req.body.summary;
     let item1 = req.body.item1 ? true : false; // Check if 'item1' is present and set it to true or false   
 
+    //package form data and send it to ejs.
+    let result = {
+        first: first,
+        last: last,
+        summary: summary,
+        item1: item1,
+    };
+
     // Send the generated HTML content as the response
     //res.send(htmlContent);
-    res.render("submission.ejs");
+    res.render("submission.ejs", result);
 });
