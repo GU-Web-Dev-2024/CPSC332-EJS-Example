@@ -32,30 +32,27 @@
         <!-- Adding EJS here. Note: EJS won't be seen client-side like this comment
              
         -->
+
+        <%
+        //necessary if we want to debug the EJS portion of our code.
+        //debugger;
+            //opening EJS tag for loop
+            for (let i = 0; i < results.length; i++  ){
+        %>
+
         <tr>
-            <td>First</td>
             <td>
-                <%= first %>
+                <%=  results[i][0] %>
+            </td>
+            <td>
+                <%=  results[i][1] %>
             </td>
         </tr>
-        <tr>
-            <td>Last</td>
-            <td>
-                <%= last %>
-            </td>
-        </tr>
-        <tr>
-            <td>Summary</td>
-            <td>
-                <%= summary %>
-            </td>
-        </tr>
-        <tr>
-            <td>item1</td>
-            <td>
-                <%= item1 %>
-            </td>
-        </tr>
+
+        <% 
+            //closing EJS tag for loop
+            }
+        %>
     </table>
 
     <div style="margin: 15px;">
