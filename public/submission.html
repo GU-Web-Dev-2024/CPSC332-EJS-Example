@@ -22,6 +22,34 @@
             border: 1px dotted black;
         }
     </style>
+    <script>
+        /*
+            This script segment is intended to simulate a form
+            getting data from a form post on the referring page.
+            We are only doing this for now until we go over a 
+            web server implementation that contains a server side
+            presence.
+        */
+        window.onload = function () {
+            //(GET method) get your query string values by field
+            let queryString = window.location.search.substring(1);
+            var URLFieldValues = queryString.split('&');
+
+            //find our table so we can interact with it
+            var table = document.getElementById("results-table");
+
+            //parse out the query string name=value pairs and populate our table
+            for (var i = 0; i < URLFieldValues.length; i++) {
+                let rowIndex = i + 1;
+                var parameterValues = URLFieldValues[i].split('=');
+                var row = table.insertRow(rowIndex);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = parameterValues[0];
+                cell2.innerHTML = parameterValues[1];
+            }
+        };        
+    </script>
 </head>
 
 <body>
@@ -37,23 +65,6 @@
             <td id=""></td>
             <td id=""></td>
         </tr> -->
-        <!-- This is what we end up recreating with the code above -->
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
     </table>
 </body>
 
