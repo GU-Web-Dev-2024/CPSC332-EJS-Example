@@ -27,7 +27,8 @@
                 <img src="https://placehold.co/400x200" alt="Placeholder image">
 
                 <!-- Form with action pointing to the '/submit' route and POST method -->
-                <form action="submit" method="GET">
+                <h4><%= method %></h4>
+                <form action="submit" method="<%= method %>">
                         <p>
                                 <label for="first">First Name:</label>
                                 <input type="text" name="first" id="first">

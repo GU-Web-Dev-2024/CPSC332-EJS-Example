@@ -29,7 +29,7 @@ app.listen(PORT, () => {
 // Define a GET route for the root path ('/') that serves an HTML form
 app.get("/", (req, res) => {
     // Method for the form submission is set to POST
-    const method = "POST";
+    const method = { method: "GET" };
 
     // Create the HTML content that will be sent as the response
     // No longer needed
@@ -38,7 +38,8 @@ app.get("/", (req, res) => {
     // Send the generated HTML content as the response
     //res.send(htmlContent);
     // Render the ejs instead of the string.
-    res.render("index.ejs");
+    //res.render("index.ejs", method);
+    res.render("index.ejs", method);
 });
 
 // Define a GET route for '/submit' that handles form submissions with query parameters
