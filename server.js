@@ -49,39 +49,9 @@ app.get("/submit", (req, res) => {
     let summary = req.query.summary;
     let item1 = req.query.item1 ? true : false; // Check if 'item1' is present and set it to true or false
 
-    // Create the HTML content to display the submitted data
-    const htmlContent = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.png">
-        <title>Submission Page</title>
-        <style>
-            table, th { border: 1px solid black; }
-            td { border: 1px dotted black; }
-        </style>    
-    </head>
-    <body>
-        <h1>Submission Results Page</h1>
-        <table id="results-table">
-            <caption>Widget values submitted on the previous page</caption>
-            <tr>
-                <th>Widget Name</th>
-                <th>Widget Value</th>
-            </tr>
-            <tr><td>First</td><td>${first}</td></tr>
-            <tr><td>Last</td><td>${last}</td></tr>
-            <tr><td>Summary</td><td>${summary}</td></tr>
-            <tr><td>item1</td><td>${item1}</td></tr>
-        </table>
-    </body>
-    </html>
-    `;
-
     // Send the generated HTML content as the response
-    res.send(htmlContent);
+    // res.send(htmlContent);
+    res.render("submission.ejs");
 });
 
 // Define a POST route for '/submit' that handles form submissions with data in the request body
@@ -90,43 +60,9 @@ app.post("/submit", (req, res) => {
     let first = req.body.first;
     let last = req.body.last;
     let summary = req.body.summary;
-    let item1 = req.body.item1 ? true : false; // Check if 'item1' is present and set it to true or false
-
-    // Create the HTML content to display the submitted data
-    const htmlContent = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.png">
-        <title>Submission Page</title>
-        <style>
-            table, th { border: 1px solid black; }
-            td { border: 1px dotted black; }
-        </style>    
-    </head>
-    <body>
-        <h1>Submission Results Page</h1>
-        <table id="results-table">
-            <caption>Widget values submitted on the previous page</caption>
-            <tr>
-                <th>Widget Name</th>
-                <th>Widget Value</th>
-            </tr>
-            <tr><td>First</td><td>${first}</td></tr>
-            <tr><td>Last</td><td>${last}</td></tr>
-            <tr><td>Summary</td><td>${summary}</td></tr>
-            <tr><td>item1</td><td>${item1}</td></tr>
-        </table>
-        <!-- Link to go back to the main form page -->
-        <div style="margin: 20px;">
-            <a href="/">Back</a>
-        </div>
-    </body>
-    </html>
-    `;
+    let item1 = req.body.item1 ? true : false; // Check if 'item1' is present and set it to true or false   
 
     // Send the generated HTML content as the response
-    res.send(htmlContent);
+    //res.send(htmlContent);
+    res.render("submission.ejs");
 });
