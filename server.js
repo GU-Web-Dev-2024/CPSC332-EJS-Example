@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Start the server and listen for incoming requests on the specified port
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+    console.log(`listening at http://localhost:${PORT}`);
 });
 
 // Define a GET route for the root path ('/') that serves an HTML form
